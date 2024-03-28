@@ -1,8 +1,9 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
-import ProductListPage from '@/admin/ProductListPage.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import ProductDetailPage from '@/pages/admin/ProductDetailPage'
+import ProductListPage from '@/pages/admin/ProductListPage.tsx'
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/admin/products',
     element: <ProductListPage />
+  },
+  {
+    path: '/admin/products/:id',
+    element: <ProductDetailPage />
   }
 ])
 
