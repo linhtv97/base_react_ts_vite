@@ -2,6 +2,9 @@
   margin: 0 auto;
   padding: 2rem;
 }
+body {
+  background: whitesmoke;
+}
 
 .logo {
   height: 6em;
@@ -44,4 +47,24 @@
 .product_table_action {
   display: flex;
   gap: 10px;
+}
+
+.nav_bar_menu {
+  gap: 40px;
+  margin-left: 60px;
+}
+
+.profile-dropdown ::after {
+  display: none;
+}
+
+.nav_bar_menu_item {
+  min-width: 100px;
+  text-align: center;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+.nav_bar_menu_item:hover {
+  background: #e7e7e7;
 }

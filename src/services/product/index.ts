@@ -1,29 +1,33 @@
 import axiosInstance from '@/config/axiosInstance.ts'
 import { Product, ProductFormValue } from '@/types/Product'
+import sleep from '@/ultis/sleep.ts'
 
 const getProducts = async (): Promise<Product[]> => {
+  await sleep()
   const response = await axiosInstance.get('/products')
 
   return response.data
 }
 
 const getProduct = async (id: string): Promise<Product> => {
+  await sleep()
+
   const response = await axiosInstance.get('/products/' + id)
   return response.data
 }
 
-const updateProduct =  (id: string, newValue: ProductFormValue): Promise<Product> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      axiosInstance.put(`/products/${id}`, newValue).then(res => {
-        resolve( res.data)
-       })
-       .catch(e => {
-        throw e
-       })
-    }, 200)
-  })
-
+const updateProduct = async (id: string, newValue: ProductFormValue): Promise<Product> => {
+  await sleep()
+  return axiosInstance.put(`/products/${id}`, newValue)
+  
 }
 
-export { getProducts, getProduct, updateProduct }
+const createProduct = async (formValue: ProductFormValue) => {
+  await sleep()
+
+  return axiosInstance.post('/products', formValue)
+}
+
+
+
+export { getProducts, getProduct, updateProduct, createProduct }

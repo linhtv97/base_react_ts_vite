@@ -2,6 +2,7 @@ import { updateProduct } from '@/services/product'
 import { Product, ProductFormValue } from '@/types/Product'
 import { FC, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 
 type Props = {
   product: Product
@@ -15,6 +16,10 @@ const ProductForm: FC<Props> = ({ product }) => {
     price: String(product.price)
   })
 
+  const navigate = useNavigate()
+
+  const [saving, setSaving] = useState<boolean>(false)
+
   const handleFormChange = (newValue: Record<string, string>) => {
     setFormValue({
       ...formValue,
@@ -23,7 +28,23 @@ const ProductForm: FC<Props> = ({ product }) => {
   }
 
   const handleSave = () => {
+    // khi người nhấn submit
+
+    if (!formValue.title) {
+      alert('Khong duoc de trong name')
+      return
+    }
+
+    setSaving(true)
     updateProduct(product.id, formValue)
+      .then(function () {
+        setSaving(false)
+        navigate('/admin/products')
+      })
+      .catch((e: unknown) => {
+        setSaving(false)
+        console.log(e)
+      })
   }
 
   return (
@@ -38,8 +59,6 @@ const ProductForm: FC<Props> = ({ product }) => {
                 title: e.target.value
               })
             }}
-            type='email'
-            placeholder='name@example.com'
           />
         </Form.Group>
 
@@ -84,11 +103,13 @@ const ProductForm: FC<Props> = ({ product }) => {
         </Form.Group>
 
         <Button
+          disabled={saving}
+          variant='primary'
           onClick={() => {
             handleSave()
           }}
         >
-          Save
+          {saving ? 'Saving...' : 'Save'}
         </Button>
       </Form>
     </div>

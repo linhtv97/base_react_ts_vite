@@ -4,11 +4,13 @@ import './index.css'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ProductDetailPage from '@/pages/admin/ProductDetailPage'
 import ProductListPage from '@/pages/admin/ProductListPage.tsx'
+import Home from '@/pages'
+import ProductCreatePage from './pages/admin/ProductCreatePage'
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <div>Hello world!</div>
+    element: <Home />
   },
   {
     path: '/products',
@@ -21,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: '/admin/products',
     element: <ProductListPage />
+  },
+  {
+    path: '/admin/products/create',
+    element: <ProductCreatePage />
   },
   {
     path: '/admin/products/:id',

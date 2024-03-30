@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getProducts } from '@/services/product'
-import { Table, Button, Modal } from 'react-bootstrap'
+import { Table, Button, Modal, Spinner } from 'react-bootstrap'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -14,15 +14,24 @@ export default function ProductListPage() {
 
   const products = result.data || []
 
+  const loading = result.isLoading
+
   console.log(products)
 
   const handleClickBtnDelete = () => {
     setOpenModalConfirm(!openModalConfirm)
   }
 
+  if (loading) {
+    return <Spinner />
+  }
+
   return (
     <div>
       Product list
+      <Link to={'/admin/products/create'}>
+        <Button>Add</Button>
+      </Link>
       <Table striped bordered hover>
         <thead>
           <tr>
