@@ -45,5 +45,57 @@
       "price": "22222",
       "description": "dasdsad asdasdsadsadsadsadasdsa"
     }
+  ],
+  "users": [
+    {
+      "email": "linhtv@sphinx-software.com",
+      "password": "$2a$10$sLPCHchZwDRL5TFQG9cbe.0jfOyWpvbLzvw.ctZD5AbptckjGZDv.",
+      "id": 1
+    },
+    {
+      "email": "phongtq.hb+2@gmail.com",
+      "password": "$2a$10$QRl1.sPDgV7dMTKpZ97RtOWZ6ifDcnmfqxXDaT1W.mQHpSkxIZGae",
+      "id": 2
+    },
+    {
+      "email": "tuhd.sphinxsoftware@gmail.com",
+      "password": "$2a$10$Cu7TKji22dMGnIRIXCpqjOnO1F0J8HVPPO64a.q9EEudxjYld5Rzq",
+      "id": 3
+    },
+    {
+      "email": "phongtq.hb+1@gmail.com",
+      "password": "$2a$10$b2T9HPa2gisAHEuprC6SYutneTcllXLVBUnrmfrJ.g4I.IRkhSC2W",
+      "id": 4
+    },
+    {
+      "email": "phongtq.hb2+1@gmail.com",
+      "password": "$2a$10$dDuP8/6alz7z1KYnizKE2OXQcIQBI83tajaevFBG7NDIwB2hWXX42",
+      "id": 5
+    },
+    {
+      "email": "phongtq.hb2+1@gmail.com22",
+      "password": "$2a$10$qrDD/n2xgNccqk/DzHXkze3xahMTCMr3jU8QlL5R6Ma0isnl/Sokm",
+      "id": 6
+    },
+    {
+      "email": "phongtq.hb2+1@gmail.com2222",
+      "password": "$2a$10$5z2TiKwwTGvdYI28e/40LeS53Sg6/BQ0UX1HzrsiNhXYeka8IapQi",
+      "id": 7
+    },
+    {
+      "email": "phongtq.hb+1@gmail.com22",
+      "password": "$2a$10$78Ulx0OAfGPdaP8tWNzVeOMZt79mBIjSQZbGcr83AEp0WM1j1vFHe",
+      "id": 8
+    },
+    {
+      "email": "phongtq.hb+1@gmail.com22111222",
+      "password": "$2a$10$yZq4R0QP0mseJnhgplBY0O0c0ckTHJaxT0HH6NbgXB/0JJ6HkmfxG",
+      "id": 9
+    },
+    {
+      "email": "phongtq.hb+1@gmail.com13",
+      "password": "$2a$10$tsAw2m7TOBZKhcWXat2wrO/iq.bjJfbuaBgHJRJ4s7k8DQe12vi0S",
+      "id": 10
+    }
   ]
 }

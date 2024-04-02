@@ -6,6 +6,10 @@ import ProductDetailPage from '@/pages/admin/ProductDetailPage'
 import ProductListPage from '@/pages/admin/ProductListPage.tsx'
 import Home from '@/pages'
 import ProductCreatePage from './pages/admin/ProductCreatePage'
+import SignInPage from './pages/SignInPage'
+import LoginPage from './pages/LoginPage'
+import { ToastContainer } from 'react-toastify'
+import ProtectRouter from './ProtectRouter'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +26,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/admin/products',
-    element: <ProductListPage />
+    element: (
+      <ProtectRouter>
+        <ProductListPage />
+      </ProtectRouter>
+    )
   },
   {
     path: '/admin/products/create',
@@ -31,6 +39,14 @@ const router = createBrowserRouter([
   {
     path: '/admin/products/:id',
     element: <ProductDetailPage />
+  },
+  {
+    path: '/sign-in',
+    element: <SignInPage />
+  },
+  {
+    path: '/login',
+    element: <LoginPage />
   }
 ])
 
@@ -39,5 +55,6 @@ const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    <ToastContainer />
   </QueryClientProvider>
 )

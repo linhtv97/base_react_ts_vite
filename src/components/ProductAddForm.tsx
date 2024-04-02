@@ -5,13 +5,10 @@ import { createProduct } from '@/services/product'
 
 const ProductAddForm = () => {
   const useFormResult = useForm<ProductFormValue>()
-
   const register = useFormResult.register
   const handleSubmit = useFormResult.handleSubmit
   const formState = useFormResult.formState
   const errors = formState.errors
-
-  console.log(errors, 'errors')
 
   const onSubmit = (formValue: ProductFormValue) => {
     createProduct(formValue)
@@ -23,7 +20,7 @@ const ProductAddForm = () => {
         <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
           <Form.Label>Name</Form.Label>
           <Form.Control
-            as='input'
+            as={'input'}
             {...register('title', {
               required: 'Phai nhap input nay',
               minLength: {
@@ -35,9 +32,9 @@ const ProductAddForm = () => {
                 message: 'So luong ki tu nho lon hon 20'
               }
             })}
-            isValid={false}
+            isInvalid={!!errors?.title}
           />
-          {errors?.title && <div className='text-red-600'>{errors?.title?.message}</div>}
+          <Form.Control.Feedback type='invalid'>{errors?.title?.message}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
@@ -47,19 +44,26 @@ const ProductAddForm = () => {
             {...register('brand', {
               required: 'Phai nhap brand'
             })}
+            isInvalid={Boolean(errors?.brand)}
           />
-          {errors?.brand && <div className='text-red-600'>{errors?.brand?.message}</div>}
+          <Form.Control.Feedback type='invalid'>{errors?.brand?.message}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
           <Form.Label>Price</Form.Label>
           <Form.Control
+            type='number'
             as='input'
             {...register('price', {
-              required: 'Phai nhap price'
+              required: 'Phai nhap price',
+              min: {
+                value: 0,
+                message: 'Gia phai lon hon 0'
+              }
             })}
+            isInvalid={!!errors.price}
           />
-          {errors?.price && <div className='text-red-600'>{errors?.price?.message}</div>}
+          <Form.Control.Feedback type='invalid'>{errors?.price?.message}</Form.Control.Feedback>
         </Form.Group>
 
         <Form.Group className='mb-3' controlId='exampleForm.ControlTextarea1'>
@@ -74,8 +78,9 @@ const ProductAddForm = () => {
                 message: 'Toi thieu 20 ki tu'
               }
             })}
+            isInvalid={Boolean(errors?.description)}
           />
-          {errors?.description && <div className='text-red-600'>{errors?.description?.message}</div>}
+          <Form.Control.Feedback type='invalid'>{errors?.description?.message}</Form.Control.Feedback>
         </Form.Group>
 
         <Button type='submit' variant='primary' onClick={() => {}}>
