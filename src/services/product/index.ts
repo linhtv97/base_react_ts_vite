@@ -11,7 +11,6 @@ const getProducts = async (): Promise<Product[]> => {
 
 const getProduct = async (id: string): Promise<Product> => {
   await sleep()
-
   const response = await axiosInstance.get('/products/' + id)
   return response.data
 }

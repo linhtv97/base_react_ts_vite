@@ -1,5 +1,3 @@
-
-
 ## Getting Started
 
 After clone the repository, we need to install the dependencies:

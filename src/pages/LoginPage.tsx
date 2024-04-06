@@ -29,7 +29,7 @@ const LoginPage = () => {
       <h1>Login page</h1>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-          <Form.Label>Name</Form.Label>
+          <Form.Label>Email</Form.Label>
           <Form.Control
             type='email'
             as={'input'}
